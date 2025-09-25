@@ -10,7 +10,9 @@ import { toast } from "sonner";
  const AddBtnCart = ({ id }: { id: string }) => {
 
 
-  const { addProductToCart } = useContext(cartContext)
+  const { addProductToCart } = useContext(cartContext) as {
+    addProductToCart: (id: string) => Promise<{ status: string }>;
+  }
 
 
 
@@ -19,7 +21,7 @@ import { toast } from "sonner";
 
     // console.log(data);
     if(data.status === "success"){
-      toast.success(data.message, {
+      toast.success(data.status, {
         duration: 1000,
         position: "top-center",
         icon: <CheckCircleIcon className="text-green-500" />

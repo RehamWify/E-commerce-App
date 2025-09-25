@@ -14,14 +14,7 @@ import { MdPayment } from "react-icons/md";
 
 
 const Cart = () => {
-  const {
-    isLoading,
-    products,
-    totalCartPrice,
-    removeCartItem,
-    updateCart,
-    clearCart,
-  } = useContext(cartContext) as {
+  const { isLoading, products, totalCartPrice, removeCartItem, updateCart, clearCart } = useContext(cartContext) as {
     isLoading: boolean;
     products: ProductCart[];
     totalCartPrice: number;

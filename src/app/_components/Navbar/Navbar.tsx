@@ -22,9 +22,9 @@ import { ActiveLink } from "../ActiveLink/ActiveLink";
 const Navbar = () => {
   const { data: session, status } = useSession();
 
-  const { numOfCartItems } = useContext(cartContext);
+  const { numOfCartItems } = useContext(cartContext) as { numOfCartItems: number }
 
-  const { wishlistCount }  = useContext(WishlistContext);
+  const { wishlistCount }  = useContext(WishlistContext) as { wishlistCount: number }
 
   return (
     // backgroud color => #c8ec6d

@@ -111,7 +111,7 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
         numOfCartItems: numOfCartItems ,
         products,
         totalCartPrice,
-        addProductToCart,
+        addProductToCart: addProductToCart,
         removeCartItem,
         updateCart,
         clearCart,
