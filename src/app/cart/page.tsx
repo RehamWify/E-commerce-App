@@ -11,10 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 import { MdClear } from "react-icons/md"; 
 import { MdPayment } from "react-icons/md";
-import { FaCreditCard } from "react-icons/fa";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
-import { PiMoneyLight } from "react-icons/pi";
-import { BsWallet2 } from "react-icons/bs";
+
 
 const Cart = () => {
   const {
@@ -101,10 +98,6 @@ const Cart = () => {
 
         <Button className="mb-10 ms-5  bg-green-600 hover:bg-green-500">
           <MdPayment />
-          {/* <FaCreditCard /> */}
-          {/* <RiMoneyDollarCircleLine /> */}
-          {/* <PiMoneyLight /> */}
-          {/* <BsWallet2 /> */}
           <Link href={"/payment"}>Payment</Link>
         </Button>
 

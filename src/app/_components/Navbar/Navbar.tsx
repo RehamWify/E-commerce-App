@@ -5,9 +5,7 @@ import logo from "./../../../assets/screens/freshcart-logo.svg";
 import Image from "next/image";
 import {
   FaFacebookF,
-  FaInstagram,
   FaLinkedin,
-  FaTiktok,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
@@ -87,8 +85,6 @@ const Navbar = () => {
 
         <div className="flex flex-col md:flex-row text-center gap-2 items-center">
           <div className="flex gap-4 text-xl ">
-            {/* <FaInstagram />
-                    <FaTiktok /> */}
             <FaFacebookF />
             <FaYoutube />
             <FaLinkedin />
