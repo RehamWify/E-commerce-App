@@ -15,12 +15,15 @@ const Payment = () => {
 
     const router = useRouter()
 
-    const { cartId, afterPayment } = useContext(cartContext)
+    const { cartId, afterPayment } = useContext(cartContext) as {
+        cartId: string;
+        afterPayment: () => void;
+    }
 
 
-  const details = useRef("");
-  const phone = useRef("");
-  const city = useRef("");
+  const details = useRef<HTMLInputElement>(null);
+  const phone = useRef<HTMLInputElement>(null);
+  const city = useRef<HTMLInputElement>(null);
 
   async function cashPayment() {
     const values = {
