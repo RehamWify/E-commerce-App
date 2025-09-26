@@ -36,7 +36,7 @@ useEffect(() => {
     setLoading(true);
     try {
         const token = await getMyToken();
-      const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist`, {
+      const res = await fetch(`${process.env.API}/wishlist`, {
         headers: {
             token: token as string
         }
@@ -55,7 +55,7 @@ useEffect(() => {
   async function addToWishlist(productId: string) {
     try {
       const token = await getMyToken();
-      const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist`, {
+      const res = await fetch(`${process.env.API}/wishlist`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +88,7 @@ async function removeFromWishlist(productId: string) {
   try {
     
     const token = await getMyToken();
-        const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist/${productId}`, {
+        const res = await fetch(`${process.env.API}/wishlist/${productId}`, {
             method: "DELETE",
             headers: {
                 token: token as string
