@@ -36,7 +36,7 @@ useEffect(() => {
     setLoading(true);
     try {
         const token = await getMyToken();
-      const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist", {
+      const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist`, {
         headers: {
             token: token as string
         }
@@ -55,7 +55,7 @@ useEffect(() => {
   async function addToWishlist(productId: string) {
     try {
       const token = await getMyToken();
-      const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist", {
+      const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +88,7 @@ async function removeFromWishlist(productId: string) {
   try {
     
     const token = await getMyToken();
-        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/wishlist/${productId}`, {
             method: "DELETE",
             headers: {
                 token: token as string
