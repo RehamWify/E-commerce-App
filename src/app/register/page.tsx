@@ -61,7 +61,7 @@ const Register = () => {
     } catch (error) {
       console.log(error);
 
-      toast.error(error.response.data.message, {
+      toast.error("Failed to Register Process", {
         position: "top-center",
         duration: 3000,
         icon: <CheckCircleIcon className="text-red-500" />
