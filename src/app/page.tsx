@@ -1,3 +1,4 @@
+"use server";
 import getAllProducts from "@/apis/allProducts";
 import HomeCard from "./_components/HomeCard/HomeCard";
 import MainSlider from "./_components/MainSlider/MainSlider";
