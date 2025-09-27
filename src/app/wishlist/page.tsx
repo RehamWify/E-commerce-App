@@ -10,11 +10,12 @@ import { WishlistProduct } from "@/types/wishlist.type";
 
 
 
+
 export default function Wishlist() {
   const { wishlist, loading } = useWishlist() as {
     wishlist: WishlistProduct[];
     loading: boolean;
-  }; 
+  } 
 
   if (loading) {
     return (
@@ -48,7 +49,7 @@ export default function Wishlist() {
         My Wishlist
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {wishlist.map((product, idx) => (
+        {wishlist.map((product) => (
           <WishlistCard key={product._id} product={product} />
         ))}
       </div>

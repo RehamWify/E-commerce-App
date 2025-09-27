@@ -4,7 +4,7 @@ import { Product } from "@/types/product.type";
 export default async function getAllProducts() {
     try {
         // Use the relative path for internal API:
-        const response = await fetch(`/api/users`);
+        const response = await fetch(`http://localhost:3000/api/users`);
         
         // 🚨 IMPORTANT: Check the response status *before* calling .json()
         if (!response.ok) {

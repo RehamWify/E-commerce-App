@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { getMyToken } from "@/utilities/token"
 

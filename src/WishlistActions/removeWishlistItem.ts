@@ -1,23 +1,21 @@
-"use server";
+"use server"
 
-import { getMyToken } from "@/utilities/token";
+import { getMyToken } from "@/utilities/token"
+import axios from "axios"
 
-export async function removeWishlistItemAction(productId: string) {
-  const token = await getMyToken();
+export async function removeWishlistItemAction(id: string){
 
-  if (!token) {
-    throw new Error("Login First");
-  }
+    const token = await getMyToken()
 
-  const data = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,
-    {
-      method: "DELETE",
-      headers: {
-        token: token as string,
-      },
+    if(!token){
+        throw new Error("Login First")
     }
-  );
 
-  return data;
+    const {data} = await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`, {
+        headers: {
+            token: token as string
+        }
+    })
+
+    return data
 }

@@ -1,22 +1,29 @@
-"use server";
+"use server"
 
 import { getMyToken } from "@/utilities/token";
+import axios from "axios";
 
-export async function AddToWishlistAction(productId: string) {
+export async function AddToWishlistAction(id: string) {
   const token = await getMyToken();
 
-  if (!token) {
-    throw new Error("Login First");
+  if(!token){
+    throw new Error("Login First")
   }
 
-  const data = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      token: token as string,
-    },
-    body: JSON.stringify({ productId }),
-  });
+  const values = {
+    productId: id,
+  };
 
-  return data;
+  const { data } = await axios.post(
+    "https://ecommerce.routemisr.com/api/v1/wishlist",
+    values,
+    {
+      headers: {
+        token: token as string,
+      },
+    }
+  );
+
+  return data
 }
+

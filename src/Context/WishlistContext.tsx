@@ -1,28 +1,19 @@
 "use client";
-
 import React from "react"; 
 import { WishlistProduct } from "@/types/wishlist.type";
-import { getMyToken } from "@/utilities/token";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CheckCircleIcon } from "lucide-react";
+import { getUserWishlistAction } from "@/WishlistActions/getUserWishlist";
+import { AddToWishlistAction } from "@/WishlistActions/addToWishlist";
+import { removeWishlistItemAction } from "@/WishlistActions/removeWishlistItem";
 
 
-type WishlistContextType = {
-  wishlist: WishlistProduct[];
-  wishlistCount: number;
-  loading: boolean;
-  addToWishlist: (productId: string) => Promise<void>;
-  removeFromWishlist: (productId: string) => Promise<void>;
-  getUserWishlist: () => Promise<void>;
-  isInWishlist: (productId: string) => boolean;
-};
-
-export const WishlistContext = createContext<WishlistContextType | undefined>(undefined);
+export const WishlistContext = createContext({});
 
 function WishlistContextProvider({ children }: { children: React.ReactNode }) {
   const [wishlist, setWishlist] = useState<WishlistProduct[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 const [wishlistCount, setWishlistCount] = useState<number>(0);
 
 useEffect(() => {
@@ -30,19 +21,10 @@ useEffect(() => {
 }, [wishlist]);
 
 
-
-
   async function getUserWishlist() {
     setLoading(true);
     try {
-        const token = await getMyToken();
-      const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist", {
-        headers: {
-            token: token as string
-        }
-      });
-      if (!res.ok) throw new Error("Failed to fetch wishlist");
-      const data = await res.json();
+      const  data  = await getUserWishlistAction();
       setWishlist(data.data || []);
     } catch (error) {
       console.error("Error fetching wishlist:", error);
@@ -52,69 +34,59 @@ useEffect(() => {
     }
   }
 
+
   async function addToWishlist(productId: string) {
     try {
-      const token = await getMyToken();
-      const res = await fetch("https://ecommerce.routemisr.com/api/v1/wishlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: token as string
-        },
-        body: JSON.stringify({ productId }),
-      });
-      console.log(res);
+      const data = await AddToWishlistAction(productId);
       
-        // Success toast
-        toast.success("Success to added to wishlist!", {
-          duration: 1000,
-          position: "top-center",
-          icon: <CheckCircleIcon className="text-green-500" />
-        });
-      } catch (error) {
-        console.log(error);
-        
-        // Fail toast
-        toast.error("Failed to added to wishlist.", {
-            duration: 1000,
-            position: "top-center",
-            icon: <CheckCircleIcon className="text-red-500" />
-          });
-      }
-    getUserWishlist();
+      // Success toast
+      toast.success(data.message, {
+        duration: 1000,
+        position: "top-center",
+        icon: <CheckCircleIcon className="text-green-500" />
+      });
+      getUserWishlist();
+      // console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      
+      // Fail toast
+      toast.error("Failed to added to wishlist.", {
+        duration: 1000,
+        position: "top-center",
+        icon: <CheckCircleIcon className="text-red-500" />
+      });
+    }
   }
 
 async function removeFromWishlist(productId: string) {
   try {
-    
-    const token = await getMyToken();
-        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`, {
-            method: "DELETE",
-            headers: {
-                token: token as string
-            }
+        const data = await removeWishlistItemAction(productId);
+        
+        // Success toast
+        toast.success(data.message, {
+          duration: 1000,
+          position: "top-center",
+          icon: <CheckCircleIcon className="text-green-500" />
         });
-        console.log(res);
-
-            // Success toast
-            toast.success("Removed from wishlist!", {
-                duration: 1000,
-                position: "top-center",
-                icon: <CheckCircleIcon className="text-green-500" />
-            });
-
-          } catch (error) {
-            console.log(error);
-            
-            toast.error("Failed to remove from wishlist.", {
-                duration: 1000,
-                position: "top-center",
-                icon: <CheckCircleIcon className="text-red-500" />
-            });
-  }
-
-    setWishlist((prev) => prev.filter((product) => product._id !== productId));
+        setWishlist((prev) => prev.filter((product) => product._id !== productId));
+        setWishlistCount((prev) => prev - 1);
+        // setWishlistCount(data?.data.numOfWishlistItems);
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.log(error);
+        
+        toast.error("Failed to remove from wishlist.", {
+          duration: 1000,
+          position: "top-center",
+          icon: <CheckCircleIcon className="text-red-500" />
+        });
+      }
+      
 }
+
 
   function isInWishlist(productId: string) {
 return wishlist.map(product => product._id).includes(productId);

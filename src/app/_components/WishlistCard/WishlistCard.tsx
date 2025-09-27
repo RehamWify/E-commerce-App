@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,7 +7,7 @@ import { HiTrash } from "react-icons/hi2";
 
 
 export default function WishlistCard({ product } : { product: WishlistProduct }) {
-  const { removeFromWishlist } = useWishlist();
+  const { removeFromWishlist } = useWishlist() as { removeFromWishlist: (id: string) => Promise<void> };
 
   return (
     <Card className="shadow-lg rounded-2xl hover:shadow-2xl transition">
