@@ -1,30 +1,45 @@
-export type Wishlist = WishlistProduct[]
+export type Wishlists = WishlistProduct[]
+
 export interface WishlistProduct {
-    _id: string;
-    title: string;
-    description: string;
-    price: number;
-    imageCover: string;
-    category: {
-        _id: string;
-        name: string;
-        slug: string;
-        image: string;
-    };
-    brand: {
-        _id: string;
-        name: string;
-        slug: string;
-        image: string;
-    };
-    ratingsAverage: number;
-    ratingsQuantity: number;
+    sold: number
+    images: string[]
+    subcategory: Subcategory[]
+    ratingsQuantity: number
+    _id: string
+    title: string
+    slug: string
+    description: string
+    quantity: number
+    price: number
+    priceAfterDiscount?: number
+    availableColors: any[]
+    imageCover: string
+    category: Category
+    brand: Brand
+    ratingsAverage: number
+    createdAt: string
+    updatedAt: string
+    __v: number
+    id: string
 }
 
-export interface WishlistResponse {
-    status: string;
-    count: number;
-    data: {
-        wishlist: WishlistProduct[];
-    };
+export interface Subcategory {
+    _id: string
+    name: string
+    slug: string
+    category: string
+}
+
+export interface Category {
+    _id: string
+    name: string
+    slug: string
+    image: string
+}
+
+export interface Brand {
+    _id: string
+    name: string
+    slug: string
+    image: string
 }

@@ -5,9 +5,16 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Heart } from "lucide-react";
 import { useWishlist } from "@/Context/WishlistContext";
 import WishlistCard from "../_components/WishlistCard/WishlistCard";
+import { WishlistProduct } from "@/types/wishlist.type";
+
+
+
 
 export default function Wishlist() {
-  const { wishlist, loading } = useWishlist();
+  const { wishlist, loading } = useWishlist() as {
+    wishlist: WishlistProduct[];
+    loading: boolean;
+  }; 
 
   if (loading) {
     return (
@@ -41,7 +48,7 @@ export default function Wishlist() {
         My Wishlist
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {wishlist.map((product) => (
+        {wishlist.map((product, idx) => (
           <WishlistCard key={product._id} product={product} />
         ))}
       </div>

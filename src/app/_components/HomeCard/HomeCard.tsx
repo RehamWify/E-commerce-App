@@ -15,7 +15,11 @@ import { Heart } from "lucide-react";
 import { useWishlist } from "@/Context/WishlistContext";
 
 const HomeCard = ({ product }: { product: Product }) => {
-  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist() as {
+    addToWishlist: (productId: string) => Promise<void>;
+    removeFromWishlist: (productId: string) => Promise<void>;
+    isInWishlist: (productId: string) => boolean;
+  };
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
