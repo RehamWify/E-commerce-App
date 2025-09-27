@@ -8,7 +8,7 @@ import Image from "next/image";
 import { toast } from "sonner";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trash2 } from "lucide-react";
+import { CheckCircleIcon, Trash2 } from "lucide-react";
 import { MdClear } from "react-icons/md"; 
 import { MdPayment } from "react-icons/md";
 
@@ -32,12 +32,14 @@ const Cart = () => {
       toast.success("success to remove this product from cart", {
           duration: 1000,
           position: "top-center",
+          icon: <CheckCircleIcon className="text-green-500" />
         });
         
     } else {
       toast.error("failed to remove this product in cart", {
           duration: 1000,
           position: "top-center",
+          icon: <CheckCircleIcon className="text-red-500" />
         });
     }
   }
