@@ -15,7 +15,7 @@ export async function AddToWishlistAction(id: string) {
   };
 
   const { data } = await axios.post(
-    "https://ecommerce.routemisr.com/api/v1/wishlist",
+    `${process.env.NEXT_PUBLIC_API_URL}/wishlist`,
     values,
     {
       headers: {
