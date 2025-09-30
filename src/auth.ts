@@ -30,7 +30,7 @@ export const authOptions: AuthOptions = {
 
       // login
       authorize: async function (credentials) {
-        const response = await fetch(`${process.env.API}/auth/signin`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signin`, {
           method: "POST",
           body: JSON.stringify({
             email: credentials?.email,
