@@ -15,7 +15,7 @@ export async function AddToCartAction(id: string) {
   };
 
   const { data } = await axios.post(
-    "https://ecommerce.routemisr.com/api/v1/cart",
+    `${process.env.NEXT_PUBLIC_API_URL}/cart`,
     values,
     {
       headers: {

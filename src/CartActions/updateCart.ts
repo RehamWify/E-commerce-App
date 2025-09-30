@@ -15,7 +15,7 @@ export async function updateCartAction(id: string, count: number) {
   };
 
   const { data } = await axios.put(
-    `https://ecommerce.routemisr.com/api/v1/cart/${id}`,value , {
+    `${process.env.NEXT_PUBLIC_API_URL}/cart/${id}`,value , {
         headers: {
             token: token as string
         }

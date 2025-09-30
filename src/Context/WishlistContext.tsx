@@ -7,6 +7,7 @@ import { CheckCircleIcon } from "lucide-react";
 import { getUserWishlistAction } from "@/WishlistActions/getUserWishlist";
 import { AddToWishlistAction } from "@/WishlistActions/addToWishlist";
 import { removeWishlistItemAction } from "@/WishlistActions/removeWishlistItem";
+import error from './../app/error';
 
 
 export const WishlistContext = createContext({});
