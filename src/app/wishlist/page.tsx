@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -6,9 +6,6 @@ import { Heart } from "lucide-react";
 import { useWishlist } from "@/Context/WishlistContext";
 import WishlistCard from "../_components/WishlistCard/WishlistCard";
 import { WishlistProduct } from "@/types/wishlist.type";
-
-
-
 
 
 export default function Wishlist() {
