@@ -11,7 +11,7 @@ export async function removeWishlistItemAction(id: string){
         throw new Error("Login First")
     }
 
-    const {data} = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/wishlist/${id}`, {
+    const {data} = await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`, {
         headers: {
             token: token as string
         }

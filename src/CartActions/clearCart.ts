@@ -11,7 +11,7 @@ export async function clearCartAction(){
         throw new Error("Login First")
     }
 
-    const {data} = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/cart`, {
+    const {data} = await axios.delete("https://ecommerce.routemisr.com/api/v1/cart", {
         headers: {
             token: token as string
         }
