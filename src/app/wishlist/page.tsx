@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
