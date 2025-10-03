@@ -53,12 +53,14 @@ const Cart = () => {
       toast.success("success to update this product from cart", {
           duration: 1000,
           position: "top-center",
+          icon: <CheckCircleIcon className="text-green-500" />
         });
     } else {
       toast.error("failed to update this product in cart",
         {
           duration: 1000,
           position: "top-center",
+          icon: <CheckCircleIcon className="text-red-500" />
         });
     }
   }
