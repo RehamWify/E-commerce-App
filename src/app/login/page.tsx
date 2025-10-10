@@ -102,10 +102,10 @@ const Login = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel> Email </FormLabel>
+                <FormLabel> Email :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="email" {...field} />
+                  <Input type="email" {...field} placeholder="example@gmail.com" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -118,10 +118,10 @@ const Login = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel> Password </FormLabel>
+                <FormLabel> Password :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="password" {...field} />
+                  <Input type="password" {...field} placeholder="Enter your password" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
