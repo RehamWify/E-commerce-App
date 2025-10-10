@@ -84,7 +84,7 @@ const Register = () => {
                 <FormLabel> Name :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="text" {...field} />
+                  <Input type="text" {...field} placeholder="Enter your name" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -100,7 +100,7 @@ const Register = () => {
                 <FormLabel> Email :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="email" {...field} />
+                  <Input type="email" {...field} placeholder="example@gmail.com" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -116,7 +116,7 @@ const Register = () => {
                 <FormLabel> Password :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="password" {...field} />
+                  <Input type="password" {...field} placeholder="Enter your password" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -132,7 +132,7 @@ const Register = () => {
                 <FormLabel> Confirm Password :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="password" {...field} />
+                  <Input type="password" {...field} placeholder="Enter your confirm password" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -148,7 +148,7 @@ const Register = () => {
                 <FormLabel> Phone : </FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="tel" {...field} />
+                  <Input type="tel" {...field} placeholder="Enter your phone number" />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
