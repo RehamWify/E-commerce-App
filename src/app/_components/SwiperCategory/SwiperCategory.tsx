@@ -31,8 +31,8 @@ const SwiperCategory = ({ categories }: { categories: Category[] }) => {
       </h2>
       <Swiper 
         modules={[Autoplay, Navigation, Pagination, A11y]}
-        spaceBetween={0}
-        slidesPerView={5}
+        // spaceBetween={0}
+        // slidesPerView={5}
   breakpoints={{
     320: { // for mobile
       slidesPerView: 1,
