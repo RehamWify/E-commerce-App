@@ -240,9 +240,9 @@ export default function ResetPassword() {
             {loading ? "Resetting..." : "Reset Password"}
           </button>
 
-          <Link href="/login" className="text-blue-500 block text-center">
+          {/* <Link href="/login" className="text-blue-500 block text-center">
             Back to Login
-          </Link>
+          </Link> */}
         </form>
         {message && <p className="text-center mt-3">{message}</p>}
       </div>

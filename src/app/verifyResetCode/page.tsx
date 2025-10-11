@@ -152,9 +152,9 @@ export default function VerifyResetCode() {
           >
             {loading ? "Verifying..." : "Verify Code"}
           </Button>
-          <Link href={"/resetpassword"} className="text-blue-600 underline">
+          {/* <Link href={"/resetpassword"} className="text-blue-600 underline">
             Reset Password
-          </Link>
+          </Link> */}
         </form>
         {message && <p className="text-center mt-3">{message}</p>}
       </div>

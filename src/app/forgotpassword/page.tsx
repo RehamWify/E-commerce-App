@@ -60,9 +60,9 @@ export default function ForgotPassword() {
             {loading ? "Sending..." : "Send Reset Link"}
           </Button>
 
-          <Link href={"/verifyResetCode"} className="text-blue-600 underline">
+          {/* <Link href={"/verifyResetCode"} className="text-blue-600 underline">
             Reset Code
-          </Link>
+          </Link> */}
         </form>
         {message && <p className="text-center mt-3">{message}</p>}
       </div>
