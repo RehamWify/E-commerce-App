@@ -25,7 +25,7 @@ export const authOptions: AuthOptions = {
           type: "email",
           placeholder: "example@gmail.com",
         },
-        password: { label: "Password", type: "text" },
+        password: { label: "Password", type: "password" },
       },
 
       // login
