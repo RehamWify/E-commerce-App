@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { loginSchema, LoginSchemaType } from "@/schema/login.schema";
@@ -105,7 +104,7 @@ const Login = () => {
                 <FormLabel> Email :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="email" {...field} placeholder="example@gmail.com" autoComplete="current-email" />
+                  <Input type="email" placeholder="example@gmail.com" autoComplete="current-email" {...field} />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -121,7 +120,7 @@ const Login = () => {
                 <FormLabel> Password :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="password" {...field} placeholder="Enter your password" autoComplete="current-password" />
+                  <Input type="password" placeholder="Enter your password" autoComplete="current-password" {...field} />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
