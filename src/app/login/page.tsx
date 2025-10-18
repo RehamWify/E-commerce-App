@@ -104,7 +104,7 @@ const Login = () => {
                 <FormLabel> Email :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="email" placeholder="example@gmail.com" autoComplete="current-email" {...field} />
+                  <Input type="email" placeholder="example@gmail.com" {...field} />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
@@ -120,7 +120,7 @@ const Login = () => {
                 <FormLabel> Password :</FormLabel>
                 <FormControl>
                   {/* Your form field */}
-                  <Input type="password" placeholder="Enter your password" autoComplete="current-password" {...field} />
+                  <Input type="password" placeholder="Enter your password" {...field} />
                 </FormControl>
                 <FormDescription />
                 <FormMessage />
